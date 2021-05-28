@@ -1,0 +1,121 @@
+{
+	"id": "104dfd05-70ce-3307-f700-817e75987d5a",
+	"name": "SpringMicroservises",
+	"description": "",
+	"order": [
+		"ab76a884-5ebf-e65f-81a7-4ea0a06a73c2",
+		"49036fb4-cc1e-889a-d0c6-418a99b5c1f0",
+		"12196a5b-b2e4-5539-881e-b282c41f8dec"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1622232905125,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "12196a5b-b2e4-5539-881e-b282c41f8dec",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/users?page=1&limit=50&sort=rtyu",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "limit",
+					"value": "50",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "sort",
+					"value": "rtyu",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "104dfd05-70ce-3307-f700-817e75987d5a",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:8080/users?page=1&limit=50&sort=rtyu",
+			"description": "http://localhost:8080/users?page=1&limit=50&sort=rtyu",
+			"descriptionFormat": "html",
+			"time": 1622234458077,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "49036fb4-cc1e-889a-d0c6-418a99b5c1f0",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/users?page=1&limit=50",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "limit",
+					"value": "50",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "104dfd05-70ce-3307-f700-817e75987d5a",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:8080/users?page=1&limit=50",
+			"description": "http://localhost:8080/users?page=1&limit=50",
+			"descriptionFormat": "html",
+			"time": 1622233982493,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "ab76a884-5ebf-e65f-81a7-4ea0a06a73c2",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/users/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1622233588127,
+			"name": "http://localhost:8080/users/1",
+			"description": "http://localhost:8080/users/1",
+			"collectionId": "104dfd05-70ce-3307-f700-817e75987d5a",
+			"responses": []
+		}
+	]
+}
