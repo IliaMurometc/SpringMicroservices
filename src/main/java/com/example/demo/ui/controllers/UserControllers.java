@@ -1,10 +1,17 @@
 package com.example.demo.ui.controllers;
 
+import com.example.demo.ui.model.response.UserRest;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class UserControllers {
+
+    @GetMapping(path="/simple/{userId}")
+    public String getUsers(@PathVariable String userId) {
+        return "get user was called with userId = " + userId;
+    }
 
     @GetMapping
     public String getUsers(@RequestParam(value="page", defaultValue = "1") int page,
@@ -13,9 +20,12 @@ public class UserControllers {
         return "get users was called with page = " + page + " and limit = " + limit + " and sort = " + sort ;
     }
 
-    @GetMapping(path="/{userId}")
-    public String getUsers(@PathVariable String userId) {
-        return "get user was called with userId = " + userId;
+    @GetMapping(path="/{userId}", produces = {
+            MediaType.APPLICATION_JSON_VALUE
+            , MediaType.APPLICATION_XML_VALUE
+    })
+    public UserRest getMoreUserInfo(@PathVariable String userId) {
+        return new UserRest(1, "Ivan", "Ivanov", "Ivan.Ivanov@gmail.com");
     }
 
     @PostMapping
