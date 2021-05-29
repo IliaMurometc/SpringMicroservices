@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,47 +12,48 @@ import static org.hamcrest.Matchers.*;
 @SpringBootTest
 class DemoApplicationTests {
 
-	@Disabled @Test
+	@Test
 	public void should_return_simple_string_on_get_request() {
-	when().
-		get("/users/simple/{id}", 1).
-	then()
+	when()
+		.get("/users/simple/{id}", 1)
+	.then()
 		.statusCode(200)
 		.body(equalTo("get user was called with userId = 1"));
 	}
 
 	//http://localhost:8080/users?page=1&limit=50&sort=bla-bla
-	@Disabled @Test
+	@Test
 	public void should_return_demo_string_using_annRequestParam(){
-		when().
-				get("/users?page={page}&limit={limit}&sort={sort}", 1, 50, "bla-bla").
-		then().
-				statusCode(200).
-				body(equalTo("get users was called with page = 1 and limit = 50 and sort = bla-bla"));
+		when()
+				.get("/users?page={page}&limit={limit}&sort={sort}", 1, 50, "bla-bla")
+		.then()
+				.statusCode(200)
+				.body(equalTo("get users was called with page = 1 and limit = 50 and sort = bla-bla"));
 	}
 
-	@Disabled @Test
+	@Test
 	public void should_return_JSON_object_data() {
-		given().
-				accept("application/json").
-		when().
-				get("/users/1").
-		then().
-				statusCode(200).
-				//body(hasItems(4)).
-				body("firstName", equalTo("Ivan")).
-				body("secondName", equalTo("Ivanov"));
+		given()
+				.accept("application/json")
+		.when()
+				.get("/users/1")
+		.then()
+				.statusCode(200)
+				.log().all()
+				.body("firstName", equalTo("Ivan"))
+				.body("secondName", equalTo("Ivanov"));
 	}
 
-	@Disabled @Test
+	@Test
 	public void should_return_XML_object_data() {
-		given().
-				header("Content-Type", "application/xml").
-		when().
-				get("/users/1").
-		then().
-				statusCode(200).
-				body("firstName", equalTo("Ivan")).
-				body("secondName", equalTo("Ivanov"));
+		given()
+				.accept("application/xml")
+		.when()
+				.get("/users/1")
+		.then()
+				.statusCode(200)
+				.log().all()
+				.body("UserRest.firstName", equalTo("Ivan"))
+				.body("UserRest.secondName", equalTo("Ivanov"));
 	}
 }
