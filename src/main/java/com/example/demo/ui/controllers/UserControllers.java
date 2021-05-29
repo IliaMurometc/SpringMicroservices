@@ -5,8 +5,10 @@ import com.example.demo.ui.model.response.UserRest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.function.EntityResponse;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
@@ -55,7 +57,7 @@ public class UserControllers {
             , MediaType.APPLICATION_XML_VALUE
     }
     )
-    public ResponseEntity<UserRest> createUsers(@RequestBody UserDetailsRequestModel usersDetails) {
+    public ResponseEntity<UserRest> createUsers(@Valid @RequestBody UserDetailsRequestModel usersDetails) {
         UserRest userRest = new UserRest();
 
         userRest.setUserId(123);

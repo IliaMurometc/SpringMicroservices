@@ -88,4 +88,21 @@ class DemoApplicationTests {
 				.body("firstName", equalTo("Kolia"))
 				.body("secondName", equalTo("Nikolaev"));
 	}
+
+	//TODO Can be investigated
+	@Test()
+	public void should_receive_and_return_json_by_POST_request_BAD() {
+		given()
+				.contentType(ContentType.JSON)
+				.body(new JSONObject()
+						.appendField("firstName", "Kolia")
+						.appendField("secondName", "Nikolaev")
+						.appendField("email", "Kolia.Nikolaev@gmail.com")
+						.appendField("password", "pa").toJSONString())
+				.when()
+				.post("/users")
+				.then()
+				.statusCode(400)
+				.log().all();
+	}
 }

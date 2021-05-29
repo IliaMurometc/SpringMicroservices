@@ -1,9 +1,24 @@
 package com.example.demo.ui.model.request;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class UserDetailsRequestModel {
+    @NotNull (message = "firstName can not be null")
+    @Size(min = 2, max = 30, message = "firstName should be more 2 and less 30")
     private String firstName;
+
+    @NotNull (message = "secondName can not be null")
+    @Size(min = 2, max = 30, message = "secondName should be more 2 and less 30")
     private String secondName;
+
+    @NotNull (message = "email can not be null")
+    @Email
     private String email;
+
+    @NotNull (message = "password can not be null")
+    @Size(min = 8, max = 16, message = "password should be more 8 and less 20")
     private String password;
 
     public UserDetailsRequestModel(String firstName) {
