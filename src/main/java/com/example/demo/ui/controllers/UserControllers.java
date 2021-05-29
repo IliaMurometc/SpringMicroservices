@@ -1,8 +1,11 @@
 package com.example.demo.ui.controllers;
 
 import com.example.demo.ui.model.response.UserRest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.function.EntityResponse;
 
 @RestController
 @RequestMapping("/users")
@@ -26,6 +29,19 @@ public class UserControllers {
     })
     public UserRest getMoreUserInfo(@PathVariable String userId) {
         return new UserRest(1, "Ivan", "Ivanov", "Ivan.Ivanov@gmail.com");
+    }
+
+    @GetMapping(path="entity/{userId}", produces = {
+            MediaType.APPLICATION_JSON_VALUE
+            , MediaType.APPLICATION_XML_VALUE
+    })
+    public ResponseEntity<UserRest> getEntityUserInfo(@PathVariable String userId) {
+        UserRest userRest = new UserRest();
+        userRest.setUserId(2);
+        userRest.setFirstName("Petro");
+        userRest.setSecondName("Petrov");
+        userRest.setEmail("Petro.Petrov@gmail.com");
+        return new ResponseEntity<UserRest>(userRest, HttpStatus.CREATED);
     }
 
     @PostMapping

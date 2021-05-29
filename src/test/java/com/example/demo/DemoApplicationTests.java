@@ -56,4 +56,15 @@ class DemoApplicationTests {
 				.body("UserRest.firstName", equalTo("Ivan"))
 				.body("UserRest.secondName", equalTo("Ivanov"));
 	}
+
+	@Test
+	public void should_return_responseEntity_with_differ_statusCode_201() {
+		when()
+				.get("/users/entity/1")
+		.then()
+				.statusCode(201)
+				.log().all()
+				.body("firstName", equalTo("Petro"))
+				.body("secondName", equalTo("Petrov"));
+	}
 }

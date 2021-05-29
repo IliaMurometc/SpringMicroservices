@@ -7,14 +7,14 @@
 		"c9892f2d-db22-4033-195b-2c25eea9d52d",
 		"745cfef2-921d-de62-786c-97778bc295fb",
 		"10b0cd60-3113-1abc-be10-36c6ac4a0069",
-		"2d497670-978a-3dd1-1fbd-5c93f29c9fe8"
+		"2d497670-978a-3dd1-1fbd-5c93f29c9fe8",
+		"272e266c-2631-2c59-2a89-437829a8e085"
 	],
 	"folders": [],
 	"folders_order": [],
 	"timestamp": 1622232905125,
 	"owner": 0,
 	"public": false,
-	"hasRequests": true,
 	"requests": [
 		{
 			"id": "10b0cd60-3113-1abc-be10-36c6ac4a0069",
@@ -35,6 +35,36 @@
 			"time": 1622296042477,
 			"name": "xml http://localhost:8080/users/1",
 			"description": "xml http://localhost:8080/users/1",
+			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
+			"responses": [],
+			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
+		},
+		{
+			"id": "272e266c-2631-2c59-2a89-437829a8e085",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/users/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1622296052140,
+			"name": "http://localhost:8080/users/entity/2",
+			"description": "http://localhost:8080/users/entity/2",
 			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
 			"responses": [],
 			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
