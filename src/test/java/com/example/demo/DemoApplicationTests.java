@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import io.restassured.http.ContentType;
+import net.minidev.json.JSONObject;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -66,5 +68,24 @@ class DemoApplicationTests {
 				.log().all()
 				.body("firstName", equalTo("Petro"))
 				.body("secondName", equalTo("Petrov"));
+	}
+
+	@Test
+	public void should_receive_and_return_json_by_POST_request() {
+
+		given()
+				.contentType(ContentType.JSON)
+				.body(new JSONObject()
+						.appendField("firstName", "Kolia")
+						.appendField("secondName", "Nikolaev")
+						.appendField("email", "Kolia.Nikolaev@gmail.com")
+						.appendField("password", "password_password").toJSONString())
+		.when()
+				.post("/users")
+		.then()
+				.statusCode(200)
+				.log().all()
+				.body("firstName", equalTo("Kolia"))
+				.body("secondName", equalTo("Nikolaev"));
 	}
 }

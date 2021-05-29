@@ -1,5 +1,6 @@
 package com.example.demo.ui.controllers;
 
+import com.example.demo.ui.model.request.UserDetailsRequestModel;
 import com.example.demo.ui.model.response.UserRest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -44,9 +45,25 @@ public class UserControllers {
         return new ResponseEntity<UserRest>(userRest, HttpStatus.CREATED);
     }
 
-    @PostMapping
-    public String createUsers() {
-        return "create user was called";
+    @PostMapping(
+            produces = {
+                    MediaType.APPLICATION_JSON_VALUE
+                    , MediaType.APPLICATION_XML_VALUE
+            },
+            consumes = {
+            MediaType.APPLICATION_JSON_VALUE
+            , MediaType.APPLICATION_XML_VALUE
+    }
+    )
+    public ResponseEntity<UserRest> createUsers(@RequestBody UserDetailsRequestModel usersDetails) {
+        UserRest userRest = new UserRest();
+
+        userRest.setUserId(123);
+        userRest.setFirstName(usersDetails.getFirstName());
+        userRest.setSecondName(usersDetails.getSecondName());
+        userRest.setEmail(usersDetails.getEmail());
+
+        return new ResponseEntity<UserRest>(userRest, HttpStatus.OK);
     }
 
     @PutMapping
