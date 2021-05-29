@@ -1,20 +1,76 @@
 {
-	"id": "104dfd05-70ce-3307-f700-817e75987d5a",
+	"id": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
 	"name": "SpringMicroservises",
 	"description": "",
 	"order": [
-		"ab76a884-5ebf-e65f-81a7-4ea0a06a73c2",
-		"49036fb4-cc1e-889a-d0c6-418a99b5c1f0",
-		"12196a5b-b2e4-5539-881e-b282c41f8dec"
+		"ce901d90-111c-31fc-9875-e8107fb9c30b",
+		"c9892f2d-db22-4033-195b-2c25eea9d52d",
+		"745cfef2-921d-de62-786c-97778bc295fb",
+		"10b0cd60-3113-1abc-be10-36c6ac4a0069",
+		"2d497670-978a-3dd1-1fbd-5c93f29c9fe8"
 	],
 	"folders": [],
 	"folders_order": [],
 	"timestamp": 1622232905125,
 	"owner": 0,
 	"public": false,
+	"hasRequests": true,
 	"requests": [
 		{
-			"id": "12196a5b-b2e4-5539-881e-b282c41f8dec",
+			"id": "10b0cd60-3113-1abc-be10-36c6ac4a0069",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/users/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1622296042477,
+			"name": "xml http://localhost:8080/users/1",
+			"description": "xml http://localhost:8080/users/1",
+			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
+			"responses": [],
+			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
+		},
+		{
+			"id": "2d497670-978a-3dd1-1fbd-5c93f29c9fe8",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/users/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1622296052140,
+			"name": "json http://localhost:8080/users/1",
+			"description": "json http://localhost:8080/users/1",
+			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
+			"responses": [],
+			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
+		},
+		{
+			"id": "745cfef2-921d-de62-786c-97778bc295fb",
 			"headers": "",
 			"headerData": [],
 			"url": "http://localhost:8080/users?page=1&limit=50&sort=rtyu",
@@ -45,7 +101,7 @@
 			"pathVariableData": [],
 			"preRequestScript": null,
 			"method": "GET",
-			"collectionId": "104dfd05-70ce-3307-f700-817e75987d5a",
+			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
 			"data": null,
 			"dataMode": "params",
 			"name": "http://localhost:8080/users?page=1&limit=50&sort=rtyu",
@@ -56,10 +112,11 @@
 			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {}
+			"helperAttributes": {},
+			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
 		},
 		{
-			"id": "49036fb4-cc1e-889a-d0c6-418a99b5c1f0",
+			"id": "c9892f2d-db22-4033-195b-2c25eea9d52d",
 			"headers": "",
 			"headerData": [],
 			"url": "http://localhost:8080/users?page=1&limit=50",
@@ -83,7 +140,7 @@
 			"pathVariableData": [],
 			"preRequestScript": null,
 			"method": "GET",
-			"collectionId": "104dfd05-70ce-3307-f700-817e75987d5a",
+			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
 			"data": null,
 			"dataMode": "params",
 			"name": "http://localhost:8080/users?page=1&limit=50",
@@ -94,10 +151,11 @@
 			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {}
+			"helperAttributes": {},
+			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
 		},
 		{
-			"id": "ab76a884-5ebf-e65f-81a7-4ea0a06a73c2",
+			"id": "ce901d90-111c-31fc-9875-e8107fb9c30b",
 			"headers": "",
 			"headerData": [],
 			"url": "http://localhost:8080/users/1",
@@ -112,10 +170,11 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1622233588127,
-			"name": "http://localhost:8080/users/1",
-			"description": "http://localhost:8080/users/1",
-			"collectionId": "104dfd05-70ce-3307-f700-817e75987d5a",
-			"responses": []
+			"name": "http://localhost:8080/users/simple/1",
+			"description": "http://localhost:8080/users/simple/1",
+			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
+			"responses": [],
+			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
 		}
 	]
 }

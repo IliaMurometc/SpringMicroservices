@@ -2,14 +2,14 @@ package com.example.demo.ui.model.response;
 
 public class UserRest {
     private int userId;
-    private String firstNAme;
-    private String secondNAme;
+    private String firstName;
+    private String secondName;
     private String email;
 
-    public UserRest(int userId, String firstNAme, String secondNAme, String email) {
+    public UserRest(int userId, String firstNAme, String secondName, String email) {
         this.userId = userId;
-        this.firstNAme = firstNAme;
-        this.secondNAme = secondNAme;
+        this.firstName = firstNAme;
+        this.secondName = secondName;
         this.email = email;
     }
 
@@ -17,12 +17,12 @@ public class UserRest {
         return userId;
     }
 
-    public String getFirstNAme() {
-        return firstNAme;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getSecondNAme() {
-        return secondNAme;
+    public String getSecondName() {
+        return secondName;
     }
 
     public String getEmail() {
@@ -33,12 +33,12 @@ public class UserRest {
         this.userId = userId;
     }
 
-    public void setFirstNAme(String firstNAme) {
-        this.firstNAme = firstNAme;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setSecondNAme(String secondNAme) {
-        this.secondNAme = secondNAme;
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
     public void setEmail(String email) {
