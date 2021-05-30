@@ -4,9 +4,12 @@
 package com.example.demo.ui.controllers;
 
 import com.example.demo.exceptions.UserServiceException;
+import com.example.demo.shared.Utils;
 import com.example.demo.ui.model.request.UpdateUserDetailsRequestModel;
 import com.example.demo.ui.model.request.UserDetailsRequestModel;
 import com.example.demo.ui.model.response.UserRest;
+import com.example.demo.userservice.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,12 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/users")
 public class UserControllers {
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    Utils utils;
 
     Map<String, UserRest> users;
 
@@ -40,9 +49,8 @@ public class UserControllers {
             , MediaType.APPLICATION_XML_VALUE
     })
     public UserRest getMoreUserInfo(@PathVariable String userId) {
-        return new UserRest(createUUID(), "Ivan", "Ivanov", "Ivan.Ivanov@gmail.com");
+        return new UserRest(utils.generateUserId(), "Ivan", "Ivanov", "Ivan.Ivanov@gmail.com");
     }
-
 
     @GetMapping(path="exception/{userId}", produces = {
             MediaType.APPLICATION_JSON_VALUE
@@ -87,7 +95,7 @@ public class UserControllers {
     })
     public ResponseEntity<UserRest> getEntityUserInfo(@PathVariable String userId) {
         UserRest userRest = new UserRest();
-        userRest.setUserId(createUUID());
+        userRest.setUserId(utils.generateUserId());
         userRest.setFirstName("Petro");
         userRest.setSecondName("Petrov");
         userRest.setEmail("Petro.Petrov@gmail.com");
@@ -108,30 +116,12 @@ public class UserControllers {
     }
 
     //TODO add several tests
-    @PostMapping(produces = {
-                    MediaType.APPLICATION_JSON_VALUE
-                    , MediaType.APPLICATION_XML_VALUE
-            }, consumes = {
-            MediaType.APPLICATION_JSON_VALUE
-            , MediaType.APPLICATION_XML_VALUE})
+    @PostMapping(
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRest> createUsers(@Valid @RequestBody UserDetailsRequestModel usersDetails) {
-        UserRest userRest = new UserRest();
-
-        String userId = createUUID();
-        userRest.setUserId(userId);
-        userRest.setFirstName(usersDetails.getFirstName());
-        userRest.setSecondName(usersDetails.getSecondName());
-        userRest.setEmail(usersDetails.getEmail());
-
-        if (users == null){ users = new HashMap<>();
-            users.put(userId, userRest);
-        }
-
-        return new ResponseEntity<UserRest>(userRest, HttpStatus.OK);
-    }
-
-    private String createUUID() {
-        return UUID.randomUUID().toString();
+        UserRest userRest = userService.createUser(usersDetails);
+        return new ResponseEntity<>(userRest, HttpStatus.OK);
     }
 
     //TODO need to add test methods
