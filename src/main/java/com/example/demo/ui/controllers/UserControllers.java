@@ -16,9 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/users")
@@ -44,31 +42,20 @@ public class UserControllers {
         return "get users was called with page = " + page + " and limit = " + limit + " and sort = " + sort ;
     }
 
-    @GetMapping(path="/{userId}", produces = {
-            MediaType.APPLICATION_JSON_VALUE
-            , MediaType.APPLICATION_XML_VALUE
-    })
+    @GetMapping(path="/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public UserRest getMoreUserInfo(@PathVariable String userId) {
         return new UserRest(utils.generateUserId(), "Ivan", "Ivanov", "Ivan.Ivanov@gmail.com");
     }
 
-    @GetMapping(path="exception/{userId}", produces = {
-            MediaType.APPLICATION_JSON_VALUE
-            , MediaType.APPLICATION_XML_VALUE
-    })
+    @GetMapping(path="exception/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRest> getException (@PathVariable String userId) {
             String firsName = null;
-
             int firstNameLength = firsName.length();
             // oops
-
             return new ResponseEntity<UserRest>(HttpStatus.OK);
     }
 
-    @GetMapping(path="illeg_arg_exception/{userId}", produces = {
-            MediaType.APPLICATION_JSON_VALUE
-            , MediaType.APPLICATION_XML_VALUE
-    })
+    @GetMapping(path="illeg_arg_exception/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRest> getIllegalArgumentException (@PathVariable String userId) {
         String firsName = null;
         if (true){
@@ -77,10 +64,7 @@ public class UserControllers {
         return new ResponseEntity<UserRest>(HttpStatus.OK);
     }
 
-    @GetMapping(path="user_exception/{userId}", produces = {
-            MediaType.APPLICATION_JSON_VALUE
-            , MediaType.APPLICATION_XML_VALUE
-    })
+    @GetMapping(path="user_exception/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRest> getUserServiceException (@PathVariable String userId) {
         String firsName = null;
         if (true){
@@ -89,10 +73,7 @@ public class UserControllers {
         return new ResponseEntity<UserRest>(HttpStatus.OK);
     }
 
-    @GetMapping(path="entity/{userId}", produces = {
-            MediaType.APPLICATION_JSON_VALUE
-            , MediaType.APPLICATION_XML_VALUE
-    })
+    @GetMapping(path="entity/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRest> getEntityUserInfo(@PathVariable String userId) {
         UserRest userRest = new UserRest();
         userRest.setUserId(utils.generateUserId());
@@ -103,9 +84,7 @@ public class UserControllers {
     }
 
     //TODO need to add tests for existing ant not existing user
-    @GetMapping(path="get_from_map/{userId}", produces = {
-            MediaType.APPLICATION_JSON_VALUE
-            , MediaType.APPLICATION_XML_VALUE
+    @GetMapping(path="get_from_map/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE
     })
     public ResponseEntity<UserRest> getEntityUserInfoFromMap(@PathVariable String userId) {
         if (users.containsKey(userId)){
@@ -116,8 +95,7 @@ public class UserControllers {
     }
 
     //TODO add several tests
-    @PostMapping(
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+    @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRest> createUsers(@Valid @RequestBody UserDetailsRequestModel usersDetails) {
         UserRest userRest = userService.createUser(usersDetails);
@@ -125,12 +103,8 @@ public class UserControllers {
     }
 
     //TODO need to add test methods
-    @PutMapping(path="entity/{userId}", produces = {
-                    MediaType.APPLICATION_JSON_VALUE
-                    , MediaType.APPLICATION_XML_VALUE
-            }, consumes = {
-                    MediaType.APPLICATION_JSON_VALUE
-                    , MediaType.APPLICATION_XML_VALUE})
+    @PutMapping(path="entity/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public UserRest updateUsers(@PathVariable String userId,
                               @Valid @RequestBody UpdateUserDetailsRequestModel updateUserDetailsRequestModel) {
         UserRest staredUserDetails = users.get(userId);
