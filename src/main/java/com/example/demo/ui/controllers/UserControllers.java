@@ -1,5 +1,9 @@
+//TODO Разделить на несколько отдельных контроллеров что бы не было все на куче
+//TODO Добавить новых ендпоинтов
+
 package com.example.demo.ui.controllers;
 
+import com.example.demo.exceptions.UserServiceException;
 import com.example.demo.ui.model.request.UpdateUserDetailsRequestModel;
 import com.example.demo.ui.model.request.UserDetailsRequestModel;
 import com.example.demo.ui.model.response.UserRest;
@@ -53,6 +57,29 @@ public class UserControllers {
             return new ResponseEntity<UserRest>(HttpStatus.OK);
     }
 
+    @GetMapping(path="illeg_arg_exception/{userId}", produces = {
+            MediaType.APPLICATION_JSON_VALUE
+            , MediaType.APPLICATION_XML_VALUE
+    })
+    public ResponseEntity<UserRest> getIllegalArgumentException (@PathVariable String userId) {
+        String firsName = null;
+        if (true){
+            throw new IllegalArgumentException();
+        }
+        return new ResponseEntity<UserRest>(HttpStatus.OK);
+    }
+
+    @GetMapping(path="user_exception/{userId}", produces = {
+            MediaType.APPLICATION_JSON_VALUE
+            , MediaType.APPLICATION_XML_VALUE
+    })
+    public ResponseEntity<UserRest> getUserServiceException (@PathVariable String userId) {
+        String firsName = null;
+        if (true){
+            throw new UserServiceException("the user service exception is thrown");
+        }
+        return new ResponseEntity<UserRest>(HttpStatus.OK);
+    }
 
     @GetMapping(path="entity/{userId}", produces = {
             MediaType.APPLICATION_JSON_VALUE

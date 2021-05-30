@@ -1,3 +1,4 @@
+//TODO Добавить какой-то код кавередж верификатор и добавить столько тестов что бы провверить все
 package com.example.demo;
 
 import com.example.demo.ui.controllers.UserControllers;
@@ -114,7 +115,7 @@ class DemoApplicationTests {
 				.log().all();
 	}
 
-	//TODO it does not work
+	//TODO it does not work. Write more code in the test to check updating!
 	@Disabled
 	@Test
 	public void should_PUT__update_user() {
