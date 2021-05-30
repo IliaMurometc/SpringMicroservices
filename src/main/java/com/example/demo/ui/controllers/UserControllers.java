@@ -39,6 +39,21 @@ public class UserControllers {
         return new UserRest(createUUID(), "Ivan", "Ivanov", "Ivan.Ivanov@gmail.com");
     }
 
+
+    @GetMapping(path="exception/{userId}", produces = {
+            MediaType.APPLICATION_JSON_VALUE
+            , MediaType.APPLICATION_XML_VALUE
+    })
+    public ResponseEntity<UserRest> getException (@PathVariable String userId) {
+            String firsName = null;
+
+            int firstNameLength = firsName.length();
+            // oops
+
+            return new ResponseEntity<UserRest>(HttpStatus.OK);
+    }
+
+
     @GetMapping(path="entity/{userId}", produces = {
             MediaType.APPLICATION_JSON_VALUE
             , MediaType.APPLICATION_XML_VALUE

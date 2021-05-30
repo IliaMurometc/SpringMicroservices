@@ -141,4 +141,13 @@ class DemoApplicationTests {
 		return UUID.randomUUID().toString();
 	}
 
+	@Test
+	public void should_handle_exception (){
+		when()
+				.get("/users/exception/1")
+				.then()
+				.statusCode(500)
+				.log().all();
+	}
+
 }
