@@ -1,10 +1,19 @@
 package com.example.demo;
 
+import com.example.demo.ui.controllers.UserControllers;
+import com.example.demo.ui.model.request.UserDetailsRequestModel;
+import com.example.demo.ui.model.response.UserRest;
 import io.restassured.http.ContentType;
 import net.minidev.json.JSONObject;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.validation.Valid;
+
+import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
@@ -72,14 +81,13 @@ class DemoApplicationTests {
 
 	@Test
 	public void should_receive_and_return_json_by_POST_request() {
-
 		given()
 				.contentType(ContentType.JSON)
 				.body(new JSONObject()
 						.appendField("firstName", "Kolia")
 						.appendField("secondName", "Nikolaev")
 						.appendField("email", "Kolia.Nikolaev@gmail.com")
-						.appendField("password", "password_password").toJSONString())
+						.appendField("password", "password_12_password").toJSONString())
 		.when()
 				.post("/users")
 		.then()
@@ -90,7 +98,7 @@ class DemoApplicationTests {
 	}
 
 	//TODO Can be investigated
-	@Test()
+	@Test
 	public void should_receive_and_return_json_by_POST_request_BAD() {
 		given()
 				.contentType(ContentType.JSON)
@@ -105,4 +113,32 @@ class DemoApplicationTests {
 				.statusCode(400)
 				.log().all();
 	}
+
+	//TODO it does not work
+	@Disabled
+	@Test
+	public void should_PUT__update_user() {
+		String userId = createUUID();
+		UserDetailsRequestModel usersDetails = new UserDetailsRequestModel(userId, "Kolia", "Nikolaev", "olia.Nikolaev@gmail.com");
+		UserControllers controllers = new UserControllers();
+		controllers.createUsers(usersDetails);
+
+		given()
+				.contentType(ContentType.JSON)
+				.body(new JSONObject()
+						.appendField("firstName", "Kolia_new")
+						.appendField("secondName", "Nikolaev_new").toJSONString())
+		.when()
+				.post("entity/" + userId)
+		.then()
+				.statusCode(200)
+				.log().all()
+				.body("firstName", equalTo("Kolia_new"))
+				.body("secondName", equalTo("Nikolaev_new"));;
+	}
+
+	private String createUUID() {
+		return UUID.randomUUID().toString();
+	}
+
 }

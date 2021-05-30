@@ -18,7 +18,7 @@ public class UserDetailsRequestModel {
     private String email;
 
     @NotNull (message = "password can not be null")
-    @Size(min = 8, max = 16, message = "password should be more 8 and less 20")
+    @Size(min = 8, max = 20, message = "password should be more 8 and less 20")
     private String password;
 
     public UserDetailsRequestModel(String firstName) {

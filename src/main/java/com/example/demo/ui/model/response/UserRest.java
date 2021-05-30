@@ -1,7 +1,7 @@
 package com.example.demo.ui.model.response;
 
 public class UserRest {
-    private int userId;
+    private String userId;
     private String firstName;
     private String secondName;
     private String email;
@@ -9,14 +9,14 @@ public class UserRest {
     public UserRest() {
     }
 
-    public UserRest(int userId, String firstNAme, String secondName, String email) {
+    public UserRest(String userId, String firstNAme, String secondName, String email) {
         this.userId = userId;
         this.firstName = firstNAme;
         this.secondName = secondName;
         this.email = email;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -32,7 +32,7 @@ public class UserRest {
         return email;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
