@@ -10,7 +10,8 @@
 		"2d497670-978a-3dd1-1fbd-5c93f29c9fe8",
 		"272e266c-2631-2c59-2a89-437829a8e085",
 		"7cf53b22-2657-7e69-cc09-b9b81e33a895",
-		"a7e5c146-43fc-0e45-4548-97a5709ee135"
+		"a7e5c146-43fc-0e45-4548-97a5709ee135",
+		"33a210b2-2fd3-5883-5505-11d0176e2ce7"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -100,6 +101,38 @@
 			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
 			"responses": [],
 			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693"
+		},
+		{
+			"id": "33a210b2-2fd3-5883-5505-11d0176e2ce7",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/users/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1622296052140,
+			"name": "GET exeption  http://localhost:8080/users/exception/1",
+			"description": "GET exeption  http://localhost:8080/users/exception/1",
+			"collectionId": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
+			"responses": [],
+			"collection_id": "eea31b5c-cb06-8277-91fc-e38ae80d9693",
+			"isFromCollection": true,
+			"collectionRequestId": "a7e5c146-43fc-0e45-4548-97a5709ee135"
 		},
 		{
 			"id": "745cfef2-921d-de62-786c-97778bc295fb",
